@@ -14,6 +14,8 @@ class petShopDetail extends StatefulWidget {
 int _sliderVal = 1;
 int _itemCount = 0;
 int _totalPrice = 0;
+String _discountCode = 'PET20221212';
+String value1 = "";
 
 enum feeType { hourly, daily }
 
@@ -127,20 +129,22 @@ class petShopDetailState extends State<petShopDetail> {
                         inactiveColor: Colors.black,
                       ),
 
-                      //trying to create discount feature======================================================================
+                      //The discount price is not auto updated if u change the code======================================================================
                       TextField(
                           controller: myController,
                           decoration: const InputDecoration(
                               //border: OutlineInputBorder(),
                               filled: true,
-                              labelText: 'Enter Promo Code')),
-                      //need to add total payment label and rating features===========================================================
+                              labelText: 'Enter Promo Code'),
+                          onChanged: (text) {
+                            value1 = text;
+                          }),
                       const SizedBox(
                         height: 25,
                       ),
 
                       Text(
-                          'Total Price: RM${_fee == feeType.hourly ? detail.boardRateHr * _itemCount * _sliderVal : detail.boardRateDaily * _itemCount * _sliderVal}',
+                          'Price: RM${_fee == feeType.hourly ? _discountCode == value1 ? (detail.boardRateHr * _itemCount * _sliderVal) * 80 / 100 : detail.boardRateHr * _itemCount * _sliderVal : _discountCode == value1 ? (detail.boardRateDaily * _itemCount * _sliderVal) * 80 / 100 : detail.boardRateDaily * _itemCount * _sliderVal}',
                           style: Theme.of(context).textTheme.headline2),
                     ],
                   );
