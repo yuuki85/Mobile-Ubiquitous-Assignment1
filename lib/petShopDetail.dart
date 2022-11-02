@@ -68,7 +68,7 @@ class petShopDetailState extends State<petShopDetail> {
                       ),
                       ListTile(
                         title: Text(
-                            'Daily fees (${petshop.duration} days):'
+                            'Daily fees ($_sliderVal days):'
                             '\nRM ${detail.boardRateDaily * _itemCount * _sliderVal}',
                             style: Theme.of(context).textTheme.headline3),
                         leading: Radio(
@@ -81,15 +81,6 @@ class petShopDetailState extends State<petShopDetail> {
                           },
                         ),
                       ),
-                      /*//need to have a radio button to allow selection of type of fees================================================
-                      Text(
-                          'Hourly fees:      RM ${detail.boardRateHr * _itemCount * _sliderVal} per hour.'
-                          "\n"
-                          'Daily fees:         RM ${detail.boardRateDaily * _itemCount * _sliderVal} per daily.'
-                          "\n"
-                          'Spaces:              ${detail.petSpace - _itemCount} spaces left',
-                          style: Theme.of(context).textTheme.headline3),
-                      */
                       const SizedBox(
                         height: 15,
                       ),
@@ -100,8 +91,6 @@ class petShopDetailState extends State<petShopDetail> {
                           crossAxisAlignment: CrossAxisAlignment
                               .center, //Center Row contents vertically,
                           children: [
-                            //need to check kalau boleh dia push ke atas
-                            //Quantity of cats slider
                             Text('Number of Cats:    ',
                                 style: Theme.of(context).textTheme.headline3),
                             _itemCount != 0
@@ -138,7 +127,7 @@ class petShopDetailState extends State<petShopDetail> {
                         inactiveColor: Colors.black,
                       ),
 
-                      //trying to create promo textfield feature======================================================================
+                      //trying to create discount feature======================================================================
                       TextField(
                           controller: myController,
                           decoration: const InputDecoration(
