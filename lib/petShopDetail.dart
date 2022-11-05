@@ -183,6 +183,17 @@ class petShopDetailState extends State<petShopDetail> {
                               const SizedBox(
                                 height: 25,
                               ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  //masukkan la code nanti untuk rating pop up
+                                },
+                                child: Text('Submit',
+                                    style:
+                                        Theme.of(context).textTheme.headline3),
+                              ),
+                              const SizedBox(
+                                height: 45,
+                              ),
                             ])),
                       ]);
                 },

@@ -18,7 +18,6 @@ class _HomeState extends State<Home> {
             Text('Pet Boarding', style: Theme.of(context).textTheme.headline6),
         backgroundColor: const Color.fromARGB(255, 255, 197, 51),
         iconTheme: Theme.of(context).iconTheme,
-        actions: appBarActions(context),
       ),
       body: SafeArea(
         child: ListView.builder(
@@ -65,23 +64,4 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-}
-
-List<Widget> appBarActions(BuildContext context) {
-  return [
-    PopupMenuButton<String>(
-      itemBuilder: (_) {
-        return const [
-          PopupMenuItem<String>(value: "1", child: Text("Account Details")),
-        ];
-      },
-      icon: const Icon(Icons.account_circle),
-      onSelected: (i) {
-        if (i == "1") {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => accountPage()));
-        } else {}
-      },
-    ),
-  ];
 }

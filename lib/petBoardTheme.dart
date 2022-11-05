@@ -30,8 +30,15 @@ class PetBoardTheme {
   );
   static ThemeData light() {
     return ThemeData(
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+            backgroundColor: const Color.fromARGB(
+                255, 255, 197, 51), // background (button) color
+            foregroundColor: Colors.black, // foreground (text) color
+            fixedSize: const Size(300, 50)),
+      ),
       iconTheme: const IconThemeData(
-        color: Colors.white, //change your color here
+        color: Colors.black, //change your color here
       ),
       textSelectionTheme: const TextSelectionThemeData(
           selectionColor: Color.fromARGB(255, 255, 197, 51)),

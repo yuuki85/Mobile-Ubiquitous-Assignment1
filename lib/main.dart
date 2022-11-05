@@ -1,3 +1,4 @@
+import 'package:asgmt1_pet_board/accountPage.dart';
 import 'package:flutter/material.dart';
 import 'petBoardTheme.dart';
 import 'home.dart';
@@ -18,7 +19,7 @@ class Asgnm1PetBoard extends StatelessWidget {
 // 3
       theme: theme,
       title: 'Pet Boarding',
-      home: Home(),
+      home: accountPage(),
     );
   }
 }
