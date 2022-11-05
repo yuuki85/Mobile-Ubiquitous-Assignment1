@@ -16,6 +16,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title:
             Text('Pet Boarding', style: Theme.of(context).textTheme.headline6),
+        backgroundColor: const Color.fromARGB(255, 255, 197, 51),
         iconTheme: Theme.of(context).iconTheme,
         actions: appBarActions(context),
       ),

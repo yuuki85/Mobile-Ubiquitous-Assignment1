@@ -18,7 +18,7 @@ class Asgnm1PetBoard extends StatelessWidget {
 // 3
       theme: theme,
       title: 'Pet Boarding',
-      home: const Home(),
+      home: Home(),
     );
   }
 }

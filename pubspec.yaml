@@ -39,9 +39,14 @@ dependencies:
   google_fonts: ^3.0.1
   flutter_rating_bar: ^4.0.1
 
+
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_native_splash: ^2.2.13
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -91,3 +96,9 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_native_splash:
+  color : '#ffc633'
+  image : assets/logo.png
+  android : true
+  ios : true

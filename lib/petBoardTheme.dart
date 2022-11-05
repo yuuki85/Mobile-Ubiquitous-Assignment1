@@ -31,14 +31,14 @@ class PetBoardTheme {
   static ThemeData light() {
     return ThemeData(
       iconTheme: const IconThemeData(
-        color: Colors.black, //change your color here
+        color: Colors.white, //change your color here
       ),
-      textSelectionTheme:
-          const TextSelectionThemeData(selectionColor: Colors.green),
+      textSelectionTheme: const TextSelectionThemeData(
+          selectionColor: Color.fromARGB(255, 255, 197, 51)),
       textTheme: lightTextTheme,
       snackBarTheme: const SnackBarThemeData(backgroundColor: Colors.green),
       colorScheme: ColorScheme.fromSwatch().copyWith(
-        primary: Colors.white,
+        primary: const Color.fromARGB(255, 255, 197, 51),
         secondary: Colors.black,
         brightness: Brightness.light,
       ),
@@ -49,7 +49,7 @@ class PetBoardTheme {
   static ThemeData dark() {
     return ThemeData(
       iconTheme: const IconThemeData(
-        color: Colors.white,
+        color: Color.fromARGB(255, 255, 197, 51),
       ),
       textSelectionTheme:
           const TextSelectionThemeData(selectionColor: Colors.green),
