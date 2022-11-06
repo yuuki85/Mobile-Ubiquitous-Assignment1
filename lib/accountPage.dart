@@ -14,8 +14,12 @@ class accountPage extends StatefulWidget {
   }
 }
 
+enum petType { cats, dogs }
+
 class accountPageDetailState extends State<accountPage> {
   final formKey = GlobalKey<FormState>();
+  petType? _pet = petType.cats;
+  int _age = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +39,9 @@ class accountPageDetailState extends State<accountPage> {
                 padding: const EdgeInsets.fromLTRB(50, 10, 50, 0),
                 child: Column(children: [
                   const SizedBox(height: 30),
-                  Text('Detail Registration:',
+                  Text('User Registration:',
                       style: Theme.of(context).textTheme.headline2),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 25),
                   TextFormField(
                     decoration: const InputDecoration(
                         //border: OutlineInputBorder(),
@@ -69,12 +73,7 @@ class accountPageDetailState extends State<accountPage> {
                         //border: OutlineInputBorder(),
                         filled: true,
                         labelText: 'Enter Phone Number'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return '*Phone Number required.';
-                      }
-                      return null;
-                    },
+                    validator: (value) => validateMobile(value),
                   ),
                   const SizedBox(height: 15),
                   TextFormField(
@@ -82,14 +81,60 @@ class accountPageDetailState extends State<accountPage> {
                         //border: OutlineInputBorder(),
                         filled: true,
                         labelText: 'Enter Email'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return '*Email required.';
-                      }
-                      return null;
-                    },
+                    validator: (value) => validateEmail(value),
                   ),
+                  const SizedBox(height: 45),
+                  Text('Pet Registration:',
+                      style: Theme.of(context).textTheme.headline2),
                   const SizedBox(height: 15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Text('Pet Type:',
+                          style: Theme.of(context).textTheme.headline3),
+                      Radio(
+                        value: petType.cats,
+                        groupValue: _pet,
+                        onChanged: (petType? value) {
+                          setState(() {
+                            _pet = value;
+                          });
+                        },
+                      ),
+                      Text('Cats',
+                          style: Theme.of(context).textTheme.headline3),
+                      Radio(
+                        value: petType.dogs,
+                        groupValue: _pet,
+                        onChanged: (petType? value) {
+                          setState(() {
+                            _pet = value;
+                          });
+                        },
+                      ),
+                      Text('Dogs',
+                          style: Theme.of(context).textTheme.headline3),
+                    ],
+                  ),
+                  Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                    Text('Age:    ',
+                        style: Theme.of(context).textTheme.headline3),
+                    _age != 1
+                        ? IconButton(
+                            icon: new Icon(Icons.remove),
+                            color: Colors.black,
+                            onPressed: () => setState(() => _age--))
+                        : IconButton(
+                            icon: new Icon(Icons.remove),
+                            color: Colors.grey,
+                            onPressed: () => null),
+                    Text('${_age.toString()} years old',
+                        style: Theme.of(context).textTheme.headline3),
+                    IconButton(
+                        icon: new Icon(Icons.add),
+                        color: Colors.black,
+                        onPressed: () => setState(() => _age++)),
+                  ]),
                 ]),
               ),
               Expanded(
@@ -119,5 +164,29 @@ class accountPageDetailState extends State<accountPage> {
             ],
           ),
         ));
+  }
+}
+
+String? validateMobile(String? value) {
+  String pattern = r'(^(?:[+0]9)?[0-9]{10,12}$)';
+  RegExp regex = RegExp(pattern);
+  if (value == null || value.isEmpty) {
+    return 'Please enter mobile number';
+  } else if (!regex.hasMatch(value)) {
+    return 'Please enter valid mobile number';
+  }
+  return null;
+}
+
+String? validateEmail(String? value) {
+  String pattern =
+      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]"
+      r"{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]"
+      r"{0,253}[a-zA-Z0-9])?)*$";
+  RegExp regex = RegExp(pattern);
+  if (value == null || value.isEmpty || !regex.hasMatch(value)) {
+    return 'Enter a valid email address';
+  } else {
+    return null;
   }
 }

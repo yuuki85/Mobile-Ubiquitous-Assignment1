@@ -112,7 +112,7 @@ class petShopDetailState extends State<petShopDetail> {
                                   crossAxisAlignment: CrossAxisAlignment
                                       .center, //Center Row contents vertically,
                                   children: [
-                                    Text('Number of Cats:    ',
+                                    Text('Number of Pets:    ',
                                         style: Theme.of(context)
                                             .textTheme
                                             .headline3),
