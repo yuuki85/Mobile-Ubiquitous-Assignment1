@@ -7,7 +7,7 @@ class Petshop {
 
   static List<Petshop> samples = [
     Petshop(
-      'Pet Hotel A',
+      'Type A',
       'assets/petshopA.jpg',
       1,
       [
@@ -15,7 +15,7 @@ class Petshop {
       ],
     ),
     Petshop(
-      'Pet Hotel B',
+      'Type B',
       'assets/petshopB.png',
       1,
       [
@@ -23,7 +23,7 @@ class Petshop {
       ],
     ),
     Petshop(
-      'Pet Hotel C',
+      'Type C',
       'assets/petshopC.png',
       1,
       [
