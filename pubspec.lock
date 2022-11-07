@@ -163,6 +163,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.2.2"
+  intl:
+    dependency: "direct main"
+    description:
+      name: intl
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.17.0"
   js:
     dependency: transitive
     description:
@@ -329,6 +336,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.12"
+  time_picker_widget:
+    dependency: "direct main"
+    description:
+      name: time_picker_widget
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0+10"
   typed_data:
     dependency: transitive
     description:
