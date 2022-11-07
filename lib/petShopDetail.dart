@@ -1,6 +1,7 @@
 import 'accountPage.dart';
 import 'package:flutter/material.dart';
 import 'petShop.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class petShopDetail extends StatefulWidget {
   final Petshop petshop;
@@ -21,6 +22,65 @@ class petShopDetailState extends State<petShopDetail> {
   int _itemCount = 1;
   final String _discountCode = 'PET20221212';
   String value1 = "";
+
+  Future<void> _showSimpleDialog() async {
+    await showDialog<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return SimpleDialog(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.check,
+                        size: 75.0,
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      Text('Thankyou for your booking.',
+                          style: Theme.of(context).textTheme.bodyText1),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      Text('Please rate our service:',
+                          style: Theme.of(context).textTheme.bodyText1),
+                      RatingBar.builder(
+                        initialRating: 3,
+                        minRating: 1,
+                        direction: Axis.horizontal,
+                        allowHalfRating: true,
+                        itemCount: 5,
+                        itemPadding:
+                            const EdgeInsets.symmetric(horizontal: 4.0),
+                        itemBuilder: (context, _) => const Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
+                        onRatingUpdate: (rating) {
+                          print(rating);
+                        },
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      OutlinedButton(
+                        onPressed: () {
+                          Navigator.pop(context); //close Dialog
+                        },
+                        child: Text('Close',
+                            style: Theme.of(context).textTheme.bodyText1),
+                      ),
+                    ]),
+              ),
+            ],
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -184,9 +244,7 @@ class petShopDetailState extends State<petShopDetail> {
                                 height: 25,
                               ),
                               ElevatedButton(
-                                onPressed: () {
-                                  //masukkan la code nanti untuk rating pop up
-                                },
+                                onPressed: _showSimpleDialog,
                                 child: Text('Submit',
                                     style:
                                         Theme.of(context).textTheme.headline3),

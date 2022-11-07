@@ -30,6 +30,10 @@ class PetBoardTheme {
   );
   static ThemeData light() {
     return ThemeData(
+      outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+        side: BorderSide(color: const Color.fromARGB(255, 255, 197, 51)),
+      )),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
             backgroundColor: const Color.fromARGB(
